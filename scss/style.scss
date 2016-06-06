@@ -48,11 +48,16 @@ header {
   //top: 0;
   //left: 0;
   //right: 0;
-  background: #62b3d9;
+  //background: #62b3d9;
+  background: #333;
+  
+  box-shadow: 0px 0px 6px #666;
   
   font-size: 14px;
   
   text-align: center;
+  
+  
   
   position: relative;
   
@@ -64,20 +69,53 @@ header {
   
   //top: -110px;
   
+  
+  @include breakpoint(pc) {
+    text-align: left;
+    height: 25px !important;
+    margin-top: 0 !important;
+  }
+  
+  
   ul {
     margin: 0;
     padding: 1em 0;
+    
+    @include breakpoint(pc) {
+      padding: 0;
+    }
     
     li {
       list-style: none;
       line-height: 30px;
       color: #fff;
       font-weight: bold;
+      cursor: pointer;
+      
+      @include breakpoint(pc) {
+        //display: inline-block;
+        border-right: 1px solid #fff;
+        line-height: 25px;
+        padding: 0 0.5em;
+        font-weight: normal;
+        font-size: 13px;
+        margin: 0;
+        float: left;
+        
+        &:hover {
+          background: #62b3d9;
+        }
+        
+      }
+      
     }
   }
   
   &.open {
     .current {
+      
+      
+      
       span {
         transform: rotate(45deg);
       }
@@ -94,6 +132,11 @@ header {
     color: #fff;
     
     cursor: pointer;
+    
+    @include breakpoint(pc) {
+        display: none;
+        visibility: hidden;
+      }
     
     span {
       transform: rotate(180deg);
