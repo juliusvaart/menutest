@@ -1,0 +1,182 @@
+@mixin breakpoint($point) {
+  @if $point == tablet {
+    @media all and (min-width: 768px) and (max-width: 991px) { @content; }
+  }
+  @if $point == mobile {
+    @media all and (max-width: 767px) { @content; }
+  }
+  @if $point == handheld {
+    @media all and (max-width: 991px) { @content; }
+  }
+  @if $point == pc {
+    @media all and (min-width: 992px) { @content; }
+  }
+/*
+  @if $point == pc {
+    @media all and (min-width: 992px) and (max-width: 1440px) { @content; }
+  }
+  @if $point == wide {
+    @media all and (min-width: 1441px) { @content; }
+  }
+*/
+  @if $point == retina {
+    @media 
+      only screen and (-moz-min-device-pixel-ratio: 1.5),
+      only screen and (-o-min-device-pixel-ratio: 3/2),
+      only screen and (-webkit-min-device-pixel-ratio: 1.5),
+      only screen and (min-device-pixel-ratio: 1.5),
+      only screen and (min-resolution: 144dpi) 
+    { @content; }
+  }
+}
+
+
+
+
+body {
+  font-family: 'Avant Garde Gothic', 'ITC Avant Garde Gothic', sans-serif;
+}
+
+
+
+header {
+  
+}
+
+.sitemenu {
+  //position: absolute;
+  //top: 0;
+  //left: 0;
+  //right: 0;
+  background: #62b3d9;
+  
+  font-size: 14px;
+  
+  text-align: center;
+  
+  position: relative;
+  
+  height: 165px;
+  
+  margin-top: -140px;
+  
+  display: block;
+  
+  //top: -110px;
+  
+  ul {
+    margin: 0;
+    padding: 1em 0;
+    
+    li {
+      list-style: none;
+      line-height: 30px;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+  
+  &.open {
+    .current {
+      span {
+        transform: rotate(45deg);
+      }
+    }
+  }
+  
+  .current {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    
+    color: #fff;
+    
+    cursor: pointer;
+    
+    span {
+      transform: rotate(180deg);
+      font-weight: bold;
+    }
+    
+  }
+  
+    
+}
+
+
+h1 {
+  font-size: 1.5em;
+}
+
+.main {
+  
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  
+}
+
+
+p.open {
+  cursor: pointer;
+  color: blue;
+}
+
+
+
+
+
+
+
+// hamburger
+.hamburger {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  float: right;
+  margin: 10px;
+  padding: 10px 5px 9px 10px;
+  cursor: pointer;
+  z-index: 99999;
+  display: none;
+  @include breakpoint(mobile) {
+    display: block;
+  }
+  .hamburger-inner {
+    position: relative;
+    height: 21px;
+    width: 25px;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  .bar {
+    width: 25px;
+    height: 3px;
+    background: #000;
+    position: absolute;
+    top: 0;
+    &.bar2,
+    &.bar3 {
+      top: 9px;
+    }
+    &.bar4 {
+      top: 18px;
+    }
+  }
+  &.open {
+    .bar1,
+    .bar4 {
+      display: none;
+    }
+    .bar2,
+    .bar3 {
+      height: 4px;
+    }
+  }
+}
+
+
