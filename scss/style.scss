@@ -31,55 +31,36 @@
 }
 
 
+// Editoo kleuren
+$darkblue: #62b3d9;
+$lightblue: #b4dee2;
 
 
-body {
-  font-family: 'Avant Garde Gothic', 'ITC Avant Garde Gothic', sans-serif;
-}
-
-
-
-header {
-  
-}
-
-.sitemenu {
-  //position: absolute;
-  //top: 0;
-  //left: 0;
-  //right: 0;
-  //background: #62b3d9;
-  background: #333;
-  
-  box-shadow: 0px 0px 6px #666;
-  
+#editooturbomenu {  
+  background: #111;
+    
+  //box-shadow: 0px 0px 6px #666;
   font-size: 14px;
-  
   text-align: center;
-  
-  
-  
   position: relative;
-  
-  height: 165px;
-  
-  margin-top: -140px;
-  
+  //height: 165px;
+  //margin-top: -150px;
+  height: 13em;
+  margin-top: -12em;
   display: block;
-  
-  //top: -110px;
-  
-  
+  z-index: 999;
+  padding: 1em 0 0 0;
+    
   @include breakpoint(pc) {
     text-align: left;
-    height: 25px !important;
+    height: 30px !important;
     margin-top: 0 !important;
+    padding: 0;
   }
-  
   
   ul {
     margin: 0;
-    padding: 1em 0;
+    padding: 0;
     
     @include breakpoint(pc) {
       padding: 0;
@@ -87,37 +68,59 @@ header {
     
     li {
       list-style: none;
-      line-height: 30px;
+      margin: 0;
+      padding: 0;
       color: #fff;
-      font-weight: bold;
-      cursor: pointer;
+      display: block;
       
       @include breakpoint(pc) {
-        //display: inline-block;
-        border-right: 1px solid #fff;
-        line-height: 25px;
-        padding: 0 0.5em;
-        font-weight: normal;
-        font-size: 13px;
-        margin: 0;
         float: left;
-        
-        &:hover {
-          background: #62b3d9;
-        }
-        
       }
       
-    }
-  }
-  
-  &.open {
-    .current {
+      h3 {
+        font-family: 'AvantGarde', sans-serif;;
+        font-weight: normal;
+        color: $darkblue;
+        margin: 0;
+        letter-spacing: 0.05em;
+        
+        @include breakpoint(pc) {
+          border-right: 1px solid #444;
+          line-height: 30px;
+          padding: 0 1em 0 0.75em;
+          font-weight: normal;
+          font-size: 14px;
+          margin: 0;
+        }
+      }
       
-      
-      
-      span {
-        transform: rotate(45deg);
+      a {
+        //font-family: 'AvantGardeBold', sans-serif;
+        transition: all 0.1s;
+        color: #fff;
+        letter-spacing: 0.05em;
+        display: block;
+        line-height: 30px;
+        text-decoration: none;
+        
+        @include breakpoint(pc) {
+          //border-right: 1px solid #666;
+          //border-right: 1px solid $darkblue;
+          border-right: 1px solid #444;
+          line-height: 30px;
+          padding: 0 1em 0;
+          font-weight: normal;
+          font-size: 14px;
+          margin: 0;
+          
+          color: #aaa;
+          
+          &:hover,
+          &.active {
+            background: #444; 
+            color: #ddd;
+          }
+        }
       }
     }
   }
@@ -128,24 +131,52 @@ header {
     right: 0;
     bottom: 0;
     text-align: center;
-    
     color: #fff;
-    
     cursor: pointer;
-    
+    letter-spacing: 0.05em;
+
     @include breakpoint(pc) {
         display: none;
         visibility: hidden;
       }
-    
     span {
       transform: rotate(180deg);
-      font-weight: bold;
     }
     
   }
   
-    
+  &.open {
+    .current {
+      color: #aaa;
+    }
+  }
+}
+
+body.foto #editooturbomenu ul li a.navfoto,
+body.pro #editooturbomenu ul li a.navpro {
+  background: #444; 
+  color: #ddd;
+}
+
+
+
+
+.login {
+  display: none;
+  @include breakpoint(pc) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    a {
+      border-right: none;
+      background: $darkblue;
+      color: #000 !important;
+      &:hover {
+        background: $lightblue !important;
+      }
+    }
+  }
 }
 
 
@@ -154,72 +185,14 @@ h1 {
 }
 
 .main {
-  
   width: 90%;
   margin: 0 auto;
   position: relative;
-  
 }
-
 
 p.open {
   cursor: pointer;
   color: blue;
-}
-
-
-
-
-
-
-
-// hamburger
-.hamburger {
-  position: fixed;
-  top: 20px;
-  right: 0;
-  float: right;
-  margin: 10px;
-  padding: 10px 5px 9px 10px;
-  cursor: pointer;
-  z-index: 99999;
-  display: none;
-  @include breakpoint(mobile) {
-    display: block;
-  }
-  .hamburger-inner {
-    position: relative;
-    height: 21px;
-    width: 25px;
-    display: block;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-  }
-  .bar {
-    width: 25px;
-    height: 3px;
-    background: #000;
-    position: absolute;
-    top: 0;
-    &.bar2,
-    &.bar3 {
-      top: 9px;
-    }
-    &.bar4 {
-      top: 18px;
-    }
-  }
-  &.open {
-    .bar1,
-    .bar4 {
-      display: none;
-    }
-    .bar2,
-    .bar3 {
-      height: 4px;
-    }
-  }
 }
 
 
